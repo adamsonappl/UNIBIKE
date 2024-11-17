@@ -1,0 +1,150 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>index</title>
+
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </head>
+  <body>  
+      <header id="header">
+          <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #095527;">  
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="UNIBIKE Logo">
+                <strong><span class="uni-text">Uni</span><span class="bike-text">Bike</span></strong>
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                 <!-- Button to Open Modal -->
+                    <li class="nav-item">
+                      <button type="button" class="btn btn-primary btn-round btn-custom" onclick="openModal()">LOG IN</button>
+                    </li>
+
+                    <!-- Modal Structure -->
+                    <div class="modal-overlay" id="loginModal">
+                      <div class="modal-content">
+                          <span class="close-btn" onclick="closeModal()">&times;</span>
+                          <h4><span class="uni-text">Uni</span><span class="bike-text">Bike</span></strong> automated login</h4>
+                          <p1><i>Please use your CARSU account to login.</i></p1>
+
+                          
+                          <form>
+                              <input type="text" placeholder="  Email" required>
+                              <input type="password" placeholder="  Password" required>
+                              <input type="submit" value="Login">
+                          </form>
+                      </div>
+                    </div>
+
+                    <li class="nav-item">
+                      <a class="nav-link scrollto" href="#about">ABOUT</a>
+                    </li> 
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        BIKES
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Bikes</a></li>
+                        <li><a class="dropdown-item" href="#">E-bikes</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">COMMUNITY</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav> 
+      </header>
+
+      <!-- Hero Section: Ensure this is not fixed, just use flexbox or similar layout -->
+      <div class="image-container">
+          <img src="cover.jpg" alt="cover photo">
+          <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+          <div id="message">
+            <h1><strong>ECOFRIENDLY</strong></h1>
+            <h5>and sustainable</h5>
+            <h2>Caraga State University</h2>
+            <hr>
+            <p>Explore and reach your destination within the University with zero smoke emission.</p>
+          </div>
+          </section>
+      </div>
+
+      <!-- About Section -->
+      <section id="about" class="about">
+        <div id="about">
+          <h2><b>ABOUT US</b></h2>
+          <hr>
+          <p>An innovative and eco-friendly bike-sharing solution at Caraga State University. Our mission is to provide a convenient, sustainable, and inclusive mode of transportation for students and faculty, aligning with global efforts to promote environmental sustainability and well-being.</p>
+        </div>
+
+        <div id="description">
+          <h5><b>Sustainable Development Goals (SDGs)</b></h5>
+          <ul>
+            <li><b>SDG 3:</b> Good Health and Well-being – By promoting cycling as a        healthy and accessible mode of transportation, we encourage physical activity, which contributes to better overall health and well-being.</li>
+            <li><b>SDG 11:</b> Sustainable Cities and Communities – Our system reduces carbon emissions and traffic congestion, supporting the creation of more sustainable and resilient urban spaces.</li>
+            <li><b>SDG 12:</b> Responsible Consumption and Production – By optimizing the use of shared resources, we minimize waste and promote a circular economy.</li>
+            <li><b>SDG 13:</b> Climate Action – Our bike-sharing program reduces reliance on fossil-fueled transportation, helping to mitigate climate change by lowering the campus’s carbon footprint.</li>
+          </ul>
+        </div>
+      
+        <div id="image1" class="container-sm">
+          <div id="carouselExampleInterval" class="carousel slide ms-auto" style="position: relative; left: 50px; top: -266px; width: 50%; height: 300px;" data-bs-ride="carousel">
+            <div class="carousel-inner" style="height: 100%;">
+                <div class="carousel-item active" data-bs-interval="10000" style="height: 100%;">
+                    <img src="1.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Image 1">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000" style="height: 100%;">
+                    <img src="2.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Image 2">
+                </div>
+                <div class="carousel-item" style="height: 100%;">
+                    <img src="3.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Image 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        
+  </div>
+
+      </div>
+      
+        
+        </section>
+
+      <main id="main">
+          <!-- Any additional content goes here -->
+      </main>
+
+      <footer class="footer bg-dark text-white py-4 mt-auto">
+        <div class="container text-center">
+            <p>&copy; 2024 UniBike - Caraga State University. All Rights Reserved.</p>
+            <p><a href="#about" class="text-white">About Us</a> | <a href="#contact" class="text-white">Contact</a></p>
+        </div>
+    </footer>
+    
+
+      <!-- Scripts -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script src="main.js"></script>
+
+  </body>
+  </html>

@@ -1,0 +1,241 @@
+#header {
+    /* Change the font color of all navigation links */
+    .navbar .nav-link {
+        color: #ffffff; /* Set your desired color here */
+        padding: 10px 10px; /* Consistent padding to prevent movement */
+        font-weight: normal; /* Fixed font weight */
+        border: none;
+        transition: color 0.3s ease;
+    }
+
+    /* Optional: Change color on hover */
+    .navbar .nav-link:hover {
+        color: #E3B04B; /* Set a different color on hover */
+    }
+
+    /* Remove hover effect from the logo */
+    .navbar-brand {
+        color: #ffffff; /* Set the color you want */
+        pointer-events: none; /* Prevent hover effect */
+    }
+
+    .navbar-brand img {
+        height: 60px; /* Set the desired height */
+        width: auto;  /* Maintain aspect ratio */
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .uni-text {
+        color: #28a745; /* Green color */
+    }
+    
+    /* Change color of BIKE to yellow */
+    .bike-text {
+        color: #ffc107; /* Yellow color */
+    }
+
+    .navbar-nav .nav-item {
+        margin-right: 20px; /* Adjust the value as needed */
+    }
+
+    /* Button custom styles */
+    .btn-custom:focus {
+        outline: none;
+        box-shadow: 0 0 0 0px #E3B04B; /* Yellow focus ring */
+    }
+
+    /* Button shape and padding for rounded, iOS-style button */
+    .btn-round {
+        border-radius: 50px; /* Creates a pill shape with rounded edges */
+        padding: 10px 20px; /* Adjust padding for height and width */
+        font-size: 16px; /* Adjust font size as needed */
+        font-weight: bold; /* Makes text more prominent */
+    }
+
+    /* Base styles for the button */
+    .btn-custom {
+        background-color: #ffffff; /* Initial white background */
+        color: #218838; /* Green text color */
+        border: 2px solid transparent; /* Transparent border, so size doesn't change on hover */
+        border-radius: 50px; /* Rounded shape */
+        padding: 10px 20px; /* Adjust padding to make it pill-shaped */
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* Hover style */
+    .btn-custom:hover {
+        background-color: #E3B04B; /* Yellow background on hover */
+        color: #ffffff; /* Dark text color on hover */
+        border-color: #E3B04B; /* Yellow border on hover */
+    }
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0; /* Remove any default margin */
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+
+    .image-container {
+        width: 100%; /* Set the width to 100% of the viewport */
+        height: 100vh; /* Automatically adjust the height to maintain aspect ratio */
+        overflow: hidden; /* Hide anything that overflows */
+    }
+
+    /* Ensure the image stretches to fit the width of the container */
+    .image-container img {
+        width: 100%; /* Image width will be 100% of the container */
+        height: 50%; /* Height will adjust to maintain aspect ratio */
+        object-fit:cover; /* This ensures the image covers the container without distortion */
+        object-position: top;
+    }
+   
+    hr {
+        border: 0;
+        height: 2px; /* Thickness of the line */
+        background-color: #333; /* Color of the line */
+        width: 100%; /* Width of the line */
+        margin: 20px auto; /* Centers the line */
+    }
+    #message {
+        margin-top: 2%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        text-align: center; /* Centers text horizontally */
+        max-width: 600px; /* Optional: to limit the width */
+        
+    }
+
+    a {
+        text-decoration: none; /* Remove the underline */
+        color: #333; /* Default color */
+    }
+
+    /* Highlight the link when hovering */
+    a:hover {
+        color: #FFC107; /* Change text color to white */
+        padding: 0 2px; /* Optional: add a little padding for better effect */
+        border-radius: 5px; /* Optional: rounded corners for the highlight */
+    }
+
+    h1 {
+        margin-bottom: 5px; /* Adds space below the <h1> */
+        padding-bottom: 2px; /* Adds space inside below the text */
+        font-size: 36px; /* Optional: Adjust font size */
+        text-align: center; /* Optional: Centers the text */
+        letter-spacing: 8px
+    }
+    h2 {
+        color: #E3B04B;
+        margin-bottom: 5%;
+        margin-top: -2%;
+       
+    }
+
+    #about {
+        margin-top: 10%;
+        margin-left: 6%;
+        margin-right: 6%;
+        margin-bottom: 6%;
+        text-align: center; /* Centers text horizontally */
+    }
+    
+    #image1 {
+        width: 100%;           /* Container takes full width */
+        height: auto;          /* Allow container height to adjust based on content */
+        text-align: right;     /* Align image inside the container to the right */
+        margin-top: -5%;
+    }   
+    padding-left: -20%;
+
+    #image1 img {
+  
+    }
+
+    #description {
+        margin-right: 50%;
+        margin-top: -2%;
+        margin-left: 6%;
+        text-align: left; /* Centers text horizontally */
+
+    }
+    h5 {
+        margin-bottom: 5%;
+       
+    }
+
+    .footer {
+        position: relative;
+        width: 100%;
+        bottom: 0;
+    }
+    
+    
+}
+
+/* Modal overlay */
+.modal-overlay {
+    display: none; /* Hidden initially */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    
+}
+
+/* Modal content box */
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.8); /* White background with 80% transparency */
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-align: center;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Input styling */
+.modal-content input[type="text"],
+.modal-content input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+}
+
+.modal-content input[type="submit"] {
+    width: 30%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+p1{
+    color: #777777;
+    font-size: small;
+}
+
