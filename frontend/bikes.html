@@ -104,7 +104,7 @@
                                 </p>
                             </span>
                                 <p class="card-text">Last used: 09:10 AM</p>
-                                <button class="btn btn-success">Book Now</button>
+                                <button class="btn btn-success book-now-button">Book Now</button>
                             </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                                     </p>
                                 </span>
                                 <p class="card-text">Last used: 12:30 PM</p>
-                                <button class="btn btn-success">Book Now</button>
+                                <button class="btn btn-success book-now-button">Book Now</button>
                             </div>
                         </div>
                     </div>
@@ -171,41 +171,83 @@
                                     </p>
                                 </span>
                                 <p class="card-text">Last used: 10:10 AM</p>
-                                <button class="btn btn-success">Book Now</button>
+                                <button class="btn btn-success book-now-button">Book Now</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Booking Form Modal -->
-<div id="bookingModal" class="modal-overlay1">
-    <div class="modal-content1">
-        <span class="close-btn1" onclick="closeModal('bookingModal')">&times;</span>
-        <h3>Book a Bike</h3>
-        <input type="text" id="bookingDate" readonly>
-        <input type="text" placeholder="Min/Hour">
-        <input type="text" placeholder="Point A">
-        <input type="text" placeholder="Point B">
-        <button class="btn1 btn-danger1" onclick="closeModal('bookingModal')">Cancel</button>
-        <button class="btn1 btn-success2" onclick="openModal('scanModal')">Pay Now</button>
-    </div>
-</div>
+                    <div id="bookingModal" class="modal-overlay1">
+                        <div class="modal-content1">
+                            <span class="close-btn1" onclick="closeModal('bookingModal')">&times;</span>
+                            <h3>Book a Bike</h3>
+                            <input type="text" id="bookingDate" readonly>
+                            <input type="text" placeholder="Min/Hour">
+                            <input type="text" placeholder="Point A">
+                            <input type="text" placeholder="Point B">
+                            <button class="btn1 btn-danger1" onclick="closeModal('bookingModal')">Cancel</button>
+                            <button class="btn1 btn-success2" id="payNowButton">Pay Now</button>
+                        </div>
+                    </div>
 
-<!-- ID Scan Modal -->
-<div id="scanModal" class="modal-overlay1">
-    <div class="modal-content1">
-        <span class="close-btn1" onclick="closeModal('scanModal')">&times;</span>
-        <h3>Scan Your University ID Here</h3>
-        <img src="/frontend/assets/QR.png" alt="QR Code" class="qr-code">
-        <div class="button-group">
-        <button class="btn1 btn-danger1" onclick="closeModal('scanModal')">Cancel</button>
-        <button class="btn btn-success2" onclick="redirectToBikes()">Done</button>
-        </div>
-    </div>
-</div>
+                    <!-- ID Scan Modal -->
+                    <div id="scanModal" class="modal-overlay1">
+                        <div class="modal-content1">
+                            <span class="close-btn1" onclick="closeModal('scanModal')">&times;</span>
+                            <h3>Scan Your University ID Here</h3>
+                            <img src="/frontend/assets/QR.png" alt="QR Code" class="qr-code">
+                            <div class="button-group">
+                                <button class="btn1 btn-danger1" onclick="closeModal('scanModal')">Cancel</button>
+                                <button class="btn1 btn-success2" id="doneButton">Done</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Chatbot Icon -->
+<div class="chatbot-icon" onclick="toggleChatbot()">
+    <i class="fas fa-comments"></i>
+</div>
+
+<!-- Chatbot Container -->
+<div class="chatbot-container" id="chatbotContainer">
+    <!-- Chatbot Header -->
+    <div class="chatbot-header">
+        Frequently Asked Questions
+        <span class="close-btn" onclick="toggleChatbot()">&times;</span>
+    </div>
+
+    <!-- Chat Area -->
+    <div class="chat-area" id="chatArea">
+        <!-- Predefined Questions -->
+        <div class="faq-question" onclick="toggleAnswer(this)">
+            What is UniBike?
+            <div class="faq-answer">UniBike is a bike-sharing service for university students.</div>
+        </div>
+        <div class="faq-question" onclick="toggleAnswer(this)">
+            How to book a bike?
+            <div class="faq-answer">You can book a bike by clicking the "Book Now" button on the main page.</div>
+        </div>
+        <div class="faq-question" onclick="toggleAnswer(this)">
+            Locations of the bike dock/s
+            <div class="faq-answer">Bike docks are located across the university campus near major landmarks.</div>
+        </div>
+        <div class="faq-question" onclick="toggleAnswer(this)">
+            Bike tracking
+            <div class="faq-answer">Bikes can be tracked using the UniBike app with real-time GPS.</div>
+        </div>
+    </div>
+
+    <!-- User Input Section -->
+    <div class="chatbot-input">
+        <input type="text" id="userInput" placeholder="Ask a question...">
+        <button onclick="handleUserQuestion()">Send</button>
+    </div>
+</div>
 
     <br><br><br>
     <footer class="footer bg-dark text-white py-4 mt-auto">
