@@ -36,8 +36,15 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">COMMUNITY</a>
+                            <a class="nav-link" href="/frontend/community.html">COMMUNITY</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/frontend/gps_tracker.html">GPS</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/frontend/transaction-history.html">LOGS</a>
+                          </li>
+                          
                     </ul>
                 </div>
             </div>
@@ -176,92 +183,148 @@
                         </div>
                     </div>
 
-                    <!-- Booking Form Modal -->
-                    <div id="bookingModal" class="modal-overlay1">
-                        <div class="modal-content1">
-                            <span class="close-btn1" onclick="closeModal('bookingModal')">&times;</span>
-                            <h3>Book a Bike</h3>
-                            <input type="text" id="bookingDate" readonly>
-                            <input type="text" placeholder="Min/Hour">
-                            <input type="text" placeholder="Point A">
-                            <input type="text" placeholder="Point B">
-                            <button class="btn1 btn-danger1" onclick="closeModal('bookingModal')">Cancel</button>
-                            <button class="btn1 btn-success2" id="payNowButton">Pay Now</button>
-                        </div>
-                    </div>
+                 <!-- Booking Form Modal
+<div id="bookingModalOverlay" class="modal-overlay1">
+    <div class="modal-content1">
+        <span class="close-btn1" onclick="closeModal('bookingModalOverlay')">&times;</span>
+        <h3>Book a Bike</h3>
+        <input type="text" id="bookingDateInput" readonly>
+        <input type="text" id="durationInput" placeholder="Min/Hour">
+        <input type="text" id="pointAInput" placeholder="Point A">
+        <input type="text" id="pointBInput" placeholder="Point B">
+        <button class="btn1 btn-danger1" onclick="closeModal('bookingModalOverlay')">Cancel</button>
+        <button class="btn1 btn-success2" id="proceedToScanButton">Proceed to Scan</button>
+    </div>
+</div>
 
-                    <!-- ID Scan Modal -->
-                    <div id="scanModal" class="modal-overlay1">
-                        <div class="modal-content1">
-                            <span class="close-btn1" onclick="closeModal('scanModal')">&times;</span>
-                            <h3>Scan Your University ID Here</h3>
-                            <img src="/frontend/assets/QR.png" alt="QR Code" class="qr-code">
-                            <div class="button-group">
-                                <button class="btn1 btn-danger1" onclick="closeModal('scanModal')">Cancel</button>
-                                <button class="btn1 btn-success2" id="doneButton">Done</button>
-                            </div>
-                        </div>
-                    </div>
+ID Scan Modal -->
+<!-- <div id="scanModalOverlay" class="modal-overlay1">
+    <div class="modal-content1">
+        <span class="close-btn1" onclick="closeModal('scanModalOverlay')">&times;</span>
+        <h3>Scan Your University ID Here</h3>
+        <img src="/frontend/assets/QR.png" alt="QR Code" class="qr-code">
+        <div class="button-group">
+            <button class="btn1 btn-danger1" onclick="closeModal('scanModalOverlay')">Cancel</button>
+            <button class="btn1 btn-success2" id="doneButton">Done</button>
+        </div>
+    </div>
+</div> -->
 
+
+<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bookingModalLabel">Book a Bicycle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="bookingForm">
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Booking Date</label>
+                        <input type="date" class="form-control" id="date" name="date" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="duration" class="form-label">Duration</label>
+                        <select class="form-control" id="duration" name="duration" required>
+                            <option value="30">30 minutes</option>
+                            <option value="60">1 hour</option>
+                            <option value="120">2 hours</option>
+                            <option value="180">3 hours</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pointA" class="form-label">Starting Point (Point A)</label>
+                        <input type="text" class="form-control" id="pointA" name="pointA" placeholder="Enter starting point" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pointB" class="form-label">Destination (Point B)</label>
+                        <input type="text" class="form-control" id="pointB" name="pointB" placeholder="Enter destination" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="scanButton">Scan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ID Scan Modal -->
+<div class="modal fade" id="scanModal" tabindex="-1" aria-labelledby="scanModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="scanModalLabel">Scan Your University ID</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- QR Code Scanner Container -->
+                <div id="qr-reader" style="width: 100%;"></div>
+                <div id="qr-reader-results" class="mt-3 text-center"></div>
+                <div class="button-group mt-3">
+                    <button class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn btn-success" id="doneButton">Done</button>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Chatbot Icon -->
-<div class="chatbot-icon" onclick="toggleChatbot()">
-    <i class="fas fa-comments"></i>
 </div>
 
-<!-- Chatbot Container -->
-<div class="chatbot-container" id="chatbotContainer">
-    <!-- Chatbot Header -->
-    <div class="chatbot-header">
-        Frequently Asked Questions
-        <span class="close-btn" onclick="toggleChatbot()">&times;</span>
-    </div>
-
-    <!-- Chat Area -->
-    <div class="chat-area" id="chatArea">
-        <!-- Predefined Questions -->
-        <div class="faq-question" onclick="toggleAnswer(this)">
-            What is UniBike?
-            <div class="faq-answer">UniBike is a bike-sharing service for university students.</div>
-        </div>
-        <div class="faq-question" onclick="toggleAnswer(this)">
-            How to book a bike?
-            <div class="faq-answer">You can book a bike by clicking the "Book Now" button on the main page.</div>
-        </div>
-        <div class="faq-question" onclick="toggleAnswer(this)">
-            Locations of the bike dock/s
-            <div class="faq-answer">Bike docks are located across the university campus near major landmarks.</div>
-        </div>
-        <div class="faq-question" onclick="toggleAnswer(this)">
-            Bike tracking
-            <div class="faq-answer">Bikes can be tracked using the UniBike app with real-time GPS.</div>
-        </div>
-    </div>
-
-    <!-- User Input Section -->
-    <div class="chatbot-input">
-        <input type="text" id="userInput" placeholder="Ask a question...">
-        <button onclick="handleUserQuestion()">Send</button>
-    </div>
-</div>
-
-    <br><br><br>
-    <footer class="footer bg-dark text-white py-4 mt-auto">
-        <div class="container text-center">
-            <p>&copy; 2024 UniBike - Caraga State University. All Rights Reserved.</p>
-            <p><a href="/frontend/index.html#about" class="text-white">About Us</a> | <a href="#contact" class="text-white">Contact</a></p>
-        </div>
-    </footer>
-
+      <!-- Chatbot Icon
+        <div class="chatbot-icon" onclick="toggleChatbot()">
+            <i class="fas fa-comments"></i>
+        </div> 
+      
+      Chatbot Container
+       <div class="chatbot-container" id="chatbotContainer"> -->
+         <!-- Chatbot Header --> 
+            <!-- <div class="chatbot-header">
+                Frequently Asked Questions
+                <span class="close-btn" onclick="toggleChatbot()">&times;</span>
+            </div>
+       -->
+        <!-- Chat Area -->
+           <!-- <div class="chat-area" id="chatArea"> 
+                 Predefined Questions -->
+                <!-- <div class="faq-question" onclick="toggleAnswer(this)">
+                    What is UniBike?
+                    <div class="faq-answer">UniBike is a bike-sharing service for university students.</div>
+                </div>
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    How to book a bike?
+                    <div class="faq-answer">You can book a bike by clicking the "Book Now" button on the main page.</div>
+                </div>
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    Locations of the bike dock/s
+                    <div class="faq-answer">Bike docks are located across the university campus near major landmarks.</div>
+                </div>
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    Bike tracking
+                    <div class="faq-answer">Bikes can be tracked using the UniBike app with real-time GPS.</div>
+                </div>
+            </div> -->
+        
+            <!-- User Input Section --> 
+            <!-- <div class="chatbot-input">
+                <input type="text" id="userInput" placeholder="Ask a question...">
+                <button onclick="handleUserQuestion()">Send</button>
+            </div>
+        </div>  --> 
+    
+      
+      
+        <!-- <footer class="footer bg-dark text-white py-4 mt-auto">
+            <div class="container text-center">
+                <p>&copy; 2024 UniBike - Caraga State University. All Rights Reserved.</p>
+                <p><a href="#about" class="text-white">About Us</a> | <a href="#contact" class="text-white">Contact</a></p>
+            </div>
+        </footer> -->
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    <script src="/frontend/main.js"></script>
+    
 </body>
 </html>
