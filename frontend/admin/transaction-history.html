@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/frontend/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header id="header">
+        <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #095527;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/frontend/index.html">
+                    <img src="/frontend/logo.png" alt="UNIBIKE Logo">
+                    <strong><span class="uni-text">Uni</span><span class="bike-text">Bike</span></strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link scrollto" href="/frontend/index.html">ABOUT</a>
+                        </li> 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                BIKES
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/frontend/bikes.html">Bikes</a></li>
+                                <li><a class="dropdown-item" href="/frontend/bikes.html">E-bikes</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/frontend/community.html">COMMUNITY</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/frontend/gps_tracker.html">GPS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/frontend/transaction-history.html">LOGS</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br><br><br><br><br>
+
+    <div class="container mt-5">
+        <h2>Booking History</h2>
+        
+        <!-- Search Input -->
+        <div class="mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search by Booking ID, Date, or Location" onkeyup="filterTransactions()">
+        </div>
+
+        <!-- Sort Options -->
+        <div class="mb-3">
+            <label for="sortSelect" class="form-label">Sort By:</label>
+            <select id="sortSelect" class="form-select" onchange="sortTransactions()">
+                <option value="date">Date</option>
+                <option value="location">Location</option>
+            </select>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Date</th>
+                    <th>Duration</th>
+                    <th>Point A</th>
+                    <th>Point B</th>
+                    <th>Scanned ID</th>
+                </tr>
+            </thead>
+            <tbody id="transactionHistory">
+                <!-- Transaction data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Chatbot Icon -->
+    <div class="chatbot-icon" onclick="toggleChatbot()">
+        <i class="fas fa-comments"></i>
+    </div>
+  
+    <!-- Chatbot Container -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            Frequently Asked Questions
+            <span class="close-btn" onclick="toggleChatbot()">&times;</span>
+        </div>
+  
+        <div class="chat-area" id="chatArea">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                What is UniBike?
+                <div class="faq-answer">UniBike is a bike-sharing service for university students.</div>
+            </div>
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                How to book a bike?
+                <div class="faq-answer">You can book a bike by clicking the "Book Now" button on the main page.</div>
+            </div>
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                Locations of the bike dock/s
+                <div class="faq-answer">Bike docks are located across the university campus near major landmarks.</div>
+            </div>
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                Bike tracking
+                <div class="faq-answer">Bikes can be tracked using the UniBike app with real-time GPS.</div>
+            </div>
+        </div>
+  
+        <div class="chatbot-input">
+            <input type="text" id="userInput" placeholder="Ask a question...">
+            <button onclick="handleUserQuestion()">Send</button>
+        </div>
+    </div>
+
+    <footer class="footer bg-dark text-white py-4 mt-auto">
+        <div class="container text-center">
+            <p>&copy; 2024 UniBike - Caraga State University. All Rights Reserved.</p>
+            <p><a href="#about" class="text-white">About Us</a> | <a href="#contact" class="text-white">Contact</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="/frontend/main.js"></script>
+
+    <script>
+        // Sample transaction data
+        const transactions = [
+            { id: 1, date: '2024-01-01', duration: '2 hours', pointA: 'Location A', pointB: 'Location B', scannedID: 'ID123' },
+            { id: 2, date: '2024-01-02', duration: '1 hour', pointA: 'Location C', pointB: 'Location D', scannedID: 'ID124' },
+            { id: 3, date: '2024-01-03', duration: '3 hours', pointA: 'Location E', pointB: 'Location F', scannedID: 'ID125' },
+            // Add more sample data as needed
+        ];
+
+        // Function to render transactions
+        function renderTransactions() {
+            const transactionHistory = document.getElementById('transactionHistory');
+            transactionHistory.innerHTML = '';
+            transactions.forEach(transaction => {
+                transactionHistory.innerHTML += `
+                    <tr>
+                        <td>${transaction.id}</td>
+                        <td>${transaction.date}</td>
+                        <td>${transaction.duration}</td>
+                        <td>${transaction.pointA}</td>
+                        <td>${transaction.pointB}</td>
+                        <td>${transaction.scannedID}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        // Function to filter transactions based on search input
+        function filterTransactions() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const filteredTransactions = transactions.filter(transaction => {
+                return (
+                    transaction.id.toString().includes(searchInput) ||
+                    transaction.date.includes(searchInput) ||
+                    transaction.pointA.toLowerCase().includes(searchInput) ||
+                    transaction.pointB.toLowerCase().includes(searchInput)
+                );
+            });
+            renderFilteredTransactions(filteredTransactions);
+        }
+
+        // Function to render filtered transactions
+        function renderFilteredTransactions(filteredTransactions) {
+            const transactionHistory = document.getElementById('transactionHistory');
+            transactionHistory.innerHTML = '';
+            filteredTransactions.forEach(transaction => {
+                transactionHistory.innerHTML += `
+                    <tr>
+                        <td>${transaction.id}</td>
+                        <td>${transaction.date}</td>
+                        <td>${transaction.duration}</td>
+                        <td>${transaction.pointA}</td>
+                        <td>${transaction.pointB}</td>
+                        <td>${transaction.scannedID}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        // Function to sort transactions
+        function sortTransactions() {
+            const sortValue = document.getElementById('sortSelect').value;
+            let sortedTransactions;
+            if (sortValue === 'date') {
+                sortedTransactions = [...transactions].sort((a, b) => new Date(a.date) - new Date(b.date));
+            } else if (sortValue === 'location') {
+                sortedTransactions = [...transactions].sort((a, b) => a.pointA.localeCompare(b.pointA));
+            }
+            renderFilteredTransactions(sortedTransactions);
+        }
+
+        // Initial render
+        renderTransactions();
+    </script>
+</body>
+</html>

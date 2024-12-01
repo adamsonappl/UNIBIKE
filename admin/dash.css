@@ -1,0 +1,756 @@
+#header {
+    /* Change the font color of all navigation links */
+    .navbar .nav-link {
+        color: #ffffff; /* Set your desired color here */
+        padding: 10px 10px; /* Consistent padding to prevent movement */
+        font-weight: normal; /* Fixed font weight */
+        border: none;
+        transition: color 0.3s ease;
+    }
+
+    /* Optional: Change color on hover */
+    .navbar .nav-link:hover {
+        color: #E3B04B; /* Set a different color on hover */
+    }
+
+    /* Remove hover effect from the logo */
+    .navbar-brand {
+        color: #ffffff; /* Set the color you want */
+        pointer-events: none; /* Prevent hover effect */
+    }
+
+    .navbar-brand img {
+        height: 60px; /* Set the desired height */
+        width: auto;  /* Maintain aspect ratio */
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .uni-text {
+        color: #28a745; /* Green color */
+    }
+    
+    /* Change color of BIKE to yellow */
+    .bike-text {
+        color: #ffc107; /* Yellow color */
+    }
+
+    .navbar-nav .nav-item {
+        margin-right: 20px; /* Adjust the value as needed */
+    }
+
+    /* Button custom styles */
+    .btn-custom:focus {
+        outline: none;
+        box-shadow: 0 0 0 0px #E3B04B; /* Yellow focus ring */
+    }
+
+    /* Button shape and padding for rounded, iOS-style button */
+    .btn-round {
+        border-radius: 50px; /* Creates a pill shape with rounded edges */
+        padding: 10px 20px; /* Adjust padding for height and width */
+        font-size: 16px; /* Adjust font size as needed */
+        font-weight: bold; /* Makes text more prominent */
+    }
+
+    /* Base styles for the button */
+    .btn-custom {
+        background-color: #ffffff; /* Initial white background */
+        color: #218838; /* Green text color */
+        border: 2px solid transparent; /* Transparent border, so size doesn't change on hover */
+        border-radius: 50px; /* Rounded shape */
+        padding: 10px 20px; /* Adjust padding to make it pill-shaped */
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* Hover style */
+    .btn-custom:hover {
+        background-color: #E3B04B; /* Yellow background on hover */
+        color: #ffffff; /* Dark text color on hover */
+        border-color: #E3B04B; /* Yellow border on hover */
+    }
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0; /* Remove any default margin */
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+
+    .image-container {
+        width: 100%; /* Set the width to 100% of the viewport */
+        height: 100vh; /* Automatically adjust the height to maintain aspect ratio */
+        overflow: hidden; /* Hide anything that overflows */
+    }
+
+    /* Ensure the image stretches to fit the width of the container */
+    .image-container img {
+        width: 100%; /* Image width will be 100% of the container */
+        height: 50%; /* Height will adjust to maintain aspect ratio */
+        object-fit:cover; /* This ensures the image covers the container without distortion */
+        object-position: top;
+    }
+   
+    hr {
+        border: 0;
+        height: 2px; /* Thickness of the line */
+        background-color: #333; /* Color of the line */
+        width: 100%; /* Width of the line */
+        margin: 20px auto; /* Centers the line */
+    }
+    #message {
+        margin-top: 2%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        text-align: center; /* Centers text horizontally */
+        max-width: 600px; /* Optional: to limit the width */
+        
+    }
+
+    a {
+        text-decoration: none; /* Remove the underline */
+        color: #333; /* Default color */
+    }
+
+    /* Highlight the link when hovering */
+    a:hover {
+        color: #FFC107; /* Change text color to white */
+        padding: 0 2px; /* Optional: add a little padding for better effect */
+        border-radius: 5px; /* Optional: rounded corners for the highlight */
+    }
+
+    h1 {
+        margin-bottom: 5px; /* Adds space below the <h1> */
+        padding-bottom: 2px; /* Adds space inside below the text */
+        font-size: 36px; /* Optional: Adjust font size */
+        text-align: center; /* Optional: Centers the text */
+        letter-spacing: 8px
+    }
+    h2 {
+        color: #E3B04B;
+        text:bold;
+        margin-bottom: 5%;
+        margin-top: -2%;
+       
+    }
+
+    #about {
+        margin-top: 10%;
+        margin-left: 6%;
+        margin-right: 6%;
+        margin-bottom: 6%;
+        text-align: center; /* Centers text horizontally */
+    }
+    
+    #image1 {
+        width: 100%;           /* Container takes full width */
+        height: auto;          /* Allow container height to adjust based on content */
+        text-align: right;     /* Align image inside the container to the right */
+        margin-top: -5%;
+    }   
+
+
+    #description {
+        margin-right: 50%;
+        margin-top: -2%;
+        margin-left: 6%;
+        text-align: left; /* Centers text horizontally */
+
+    }
+    h5 {
+        margin-bottom: 5%;
+       
+    }
+
+    .footer {
+    position: relative; /* Ensures it stays in the normal document flow */
+    width: 100%; /* Full width */
+    left: 0; /* Aligns to the left */
+    padding: 10px 0; /* Vertical padding */
+    box-sizing: border-box; /* Includes padding in width */
+    margin: 0; /* Removes any margin issues */
+    }
+
+    .info-icon {
+        position: relative; /* Make it the reference point for the tooltip */
+    }
+    
+    .info-icon i {
+        font-size: 24px;
+        color: #b8b8b8; /* Default color */
+        transition: color 0.3s ease; /* Smooth color change */
+    }
+    
+    /* Tooltip styling */
+    .info-icon .tooltip {
+        display: none; 
+        position: absolute;
+        top: 50%; 
+        right: 110%; 
+        transform: translateY(-50%); 
+        background-color: #555; 
+        color: white; 
+        padding: 5px 10px; 
+        border-radius: 20px;
+        font-size: 12px; 
+        white-space: nowrap; 
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 20;
+    }
+
+    .tooltip{
+        margin-right: -26px;
+    }
+    
+    /* Show tooltip on hover */
+    .info-icon:hover .tooltip {
+        display: block; /* Display tooltip */
+        opacity: 1; /* Make it visible */
+    }
+    
+    #rateus {
+        margin-top: 5px;
+        display: flex;
+        justify-content: center;  /* Center horizontally */
+        align-items: center;      /* Center vertically */
+    }
+
+    .rate-us {
+        display: flex;
+        align-items: center;
+        gap: 15px; /* Adjusted spacing between icons */
+    }
+    
+    /* Label styling */
+    .rate-label {
+        font-weight: bold;
+        font-size: 20px;
+        margin-right: 15px; /* Space between label and emojis */
+    }
+    
+    /* Smiley styling */
+    .smiley {
+        font-size: 50px; /* Set the size of the smileys */
+        transition: transform 0.3s ease, opacity 0.3s ease; /* Include opacity transition */
+        cursor: pointer;
+    }
+    
+    /* Hover effect for smileys */
+    .smiley:hover {
+        transform: scale(1.5); /* Slightly enlarges on hover */
+        opacity: 0.8; /* Slight fade on hover */
+    }
+    
+    /* Optional: If you have an info icon with a hover effect */
+    .info-icon:hover i {
+        color: #555555; /* Darker shade on hover */
+        opacity: 1; /* Fully visible */
+    }
+    
+    #colab{
+       margin-top: -10%;
+    }   
+    
+}
+
+/* Modal overlay */
+.modal-overlay {
+    display: none; /* Hidden initially */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    
+}
+
+/* Modal content box */
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.8); /* White background with 80% transparency */
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-align: center;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Input styling */
+.modal-content input[type="text"],
+.modal-content input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+}
+
+.modal-content input[type="submit"] {
+    width: 30%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.google-login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4285F4;
+    color: white;
+    border: 2px solid transparent;;
+    padding: 10px 20px;
+    border-radius: 200px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .google-login-btn img {
+    margin-right: 5px;
+  }
+  
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 15px 0;
+  }
+  
+  .divider hr {
+    flex: 1;
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+  }
+  
+  .divider span {
+    padding: 0 10px;
+    color: #999;
+  }
+  
+
+p1{
+    color: #777777;
+    font-size: small;
+}
+
+
+/* BIKES CSS */
+    
+.card {
+    background: linear-gradient(135deg, #b2e899, #d6f2ca) !important;
+    border-radius: 20px; /* Increase the border-radius for more rounded corners */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Increase the shadow size and opacity */
+    /* padding: 15px; */
+    color: #333;
+}
+
+.card1 {
+   
+    background: linear-gradient(135deg, #c8c9ca, #e6e8e9) !important;
+    border-radius: 20px; /* Increase the border-radius for more rounded corners */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Increase the shadow size and opacity */
+    /* padding: 15px; */
+    color: #2f2f2f;
+}
+
+.card-body {
+    
+    padding: 30px;
+}
+
+.card-title {
+    
+    font-weight: bold;
+    color: #000000;
+}
+.card-img-top {
+    max-width: 100%; /* Prevents images from stretching beyond card */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+.btn-success {
+    
+    
+    background-color: #28a745;
+    border: none;
+    
+}
+
+.btn-success1 {
+    
+    
+    background-color: #b5bab6 !important;
+    border: none;
+    
+}
+
+.rating {
+    font-size: 20px; /* Adjust size as needed */
+    color: #FFD700; /* Gold color for stars */
+}
+
+.rating i {
+    margin-right: 3px; /* Space between stars */
+}
+
+#header .navbar .nav-link {
+    color: #ffffff;
+    padding: 10px 10px;
+    font-weight: normal;
+    border: none;
+    transition: color 0.3s ease;
+    }
+        
+#header .navbar .nav-link:hover {
+        color: #E3B04B;
+    }
+
+.navbar-brand {
+    color: #ffffff;
+    pointer-events: none;
+}
+
+.navbar-brand img {
+    height: 60px;
+    width: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+
+.uni-text {
+    color: #28a745;
+}
+
+.bike-text {
+    color: #ffc107;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 20px;
+}
+
+
+/* Pyament MOdal */
+
+.book-now-button {
+    cursor: pointer;
+}
+
+.modal-overlay1 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content1 {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modal-content1 .button-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 200px; /* Adjust as needed */
+    margin-top: 20px;
+}
+
+.close-btn1 {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.modal-content1 input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+}
+
+.btn1 {
+    width: 45%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+.btn-danger1 {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+}
+
+.btn-success2 {
+    background-color: #28a745 !important;
+    color: #fff !important;
+    border: none;
+    width: 40%;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.qr-code {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    margin: 20px 0;
+}
+
+/* BOT */
+
+.chatbot-icon {
+    /* position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-color: #28a745;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; */
+
+    position: fixed;
+    bottom: 20px; /* Position at the bottom */
+    right: 20px; /* Position at the right */
+    background-color: #28a745;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.chatbot-container {
+    /* position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 400px;
+    max-height: 500px;
+    border: 2px solid #28a745;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 1001;
+    display: none;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif; */
+
+    position: fixed;
+    bottom: 90px; /* Adjusted to appear above the icon */
+    right: 20px;
+    max-width: 400px;
+    max-height: 500px;
+    border: 2px solid #28a745;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 1001;
+    display: none;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.chatbot-header {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    font-weight: bold;
+    text-align: center;
+    position: relative; /* Ensure the close button is positioned correctly */
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+
+.chat-area {
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.faq-question {
+    background-color: #e3e3e3;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px;
+    background-color: #d4edda;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.chatbot-input {
+    display: flex;
+    margin-top: 10px;
+}
+
+.chatbot-input input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.chatbot-input button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/*community*/
+
+/* Style the clickable icon */
+.icon-link {
+    display: inline-flex;  
+    justify-content: center;
+    align-items: center; 
+    font-size: 24px; 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    background-color: transparent; 
+    text-decoration: none; 
+    color: #d6f2ca;
+    transition: all 0.3s ease;
+    margin-top: -2px;
+}
+
+/* Hover effect */
+.icon-link:hover {
+    background-color: rgba(0, 0, 0, 0.1); 
+    color: #E3B04B; 
+    transform: scale(1.1);
+    border-radius: 80%;
+}
+
+/* Adjust size for resizing */
+.icon-link i {
+    font-size: inherit; 
+}
+
+#news {
+    position: relative; /* Ensures proper positioning for contained elements */
+    height:auto; /* Set your desired height */
+    overflow: hidden; /* Ensures content does not spill out */
+}
+
+#news img {
+    height: 100%; /* Images will take up the full height of the container */
+    height:auto;
+    object-fit: cover; /* Ensures images scale without distortion */
+    object-position: center; /* Centers the images within their container */
+}
+
+.login-btn {
+    margin-top: 10px;
+    display: inline-flex; /* Use flexbox to center text */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 10px 20px; /* Fixed padding */
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    border-radius: 50px; /* Fully rounded corners */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 100px; /* Fixed width */
+    height: 40px; /* Fixed height for consistency */
+    box-sizing: border-box; /* Prevents padding from affecting the width */
+    border: 2px solid transparent; /* Fixed border size */
+    transition: none; /* Disable transition effects */
+}
+
+/* Hover state to maintain consistency */
+.login-btn:hover {
+    background-color: #E3B04B; /* Keep the same background color */
+    color: white; /* Keep the same text color */
+    border: 2px solid transparent; /* Keep the border fixed */
+    padding: 10px 20px; /* Keep padding the same */
+    box-shadow: none; /* Remove any box-shadow */
+    border-radius: 50px;
+}
+
+

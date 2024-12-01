@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+
+    <link rel="stylesheet" href="/admin/dash.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>  
+    <header id="header">
+        <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #095527;">  
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+              <img src="/admin/logo.png" alt="UNIBIKE Logo">
+              <strong><span class="uni-text">Uni</span><span class="bike-text">Bike</span></strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ms-auto">
+               <!-- Button to Open Modal -->
+                  <li class="nav-item">
+                    <button type="button" class="btn btn-primary btn-round btn-custom" onclick="openModal('loginModal')">LOG IN</button>
+                  </li>
+
+               <!-- Modal Structure -->
+            <div class="modal-overlay" id="loginModal">
+              <div class="modal-content">
+                  <span class="close-btn" onclick="closeModal('loginModal')">&times;</span>
+                  <h4><span class="uni-text">Uni</span><span class="bike-text">Bike</span></strong> automated login</h4>
+                  <p1><i>Please use your CARSU account to login.</i></p1>
+
+                  
+                  <form>
+                      <input type="text" placeholder="  Email" required>
+                      <input type="password" placeholder="  Password" required>
+                    <div class="container" id="logbut">
+                      <a href="/admin/login.html" class="login-btn">Login</a>
+                    </div>
+                  </form>
+
+                    <!-- Divider -->
+              <div class="divider">
+                  <hr>
+                  <span>OR</span>
+                  <hr>
+              </div>
+
+                <!-- Google Login Button -->
+                <button class="google-login-btn" onclick="googleLogin()">
+                  <img src="/admin/assets/icons/google_icon.png" alt="Google Icon" width="30" style="vertical-align: middle; margin-right: 10px;">
+                  Log in with Google
+                </button>
+              </div>
+            </div>
+
+                  <li class="nav-item">
+                    <a class="nav-link scrollto" href="#about">ABOUT</a>
+                  </li> 
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      BIKES
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="/admin/bikes.html">Bikes</a></li>
+                      <li><a class="dropdown-item" href="/admin/bikes.html">E-bikes</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/admin/community.html">COMMUNITY</a>
+                 
+                </ul>
+              </div>
+            </div>
+          </nav> 
+    </header>
+
+    <!-- Hero Section: Ensure this is not fixed, just use flexbox or similar layout -->
+    <div class="image-container">
+        <img src="/admin/cover.jpg" alt="cover photo">
+        <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+        <div id="message">
+          <h1><strong>ECOFRIENDLY</strong></h1>
+          <h5>and sustainable</h5>
+          <h2>Caraga State University</h2>
+          <hr>
+          <p>Explore and reach your destination within the University with zero smoke emission.</p>
+        </div>
+        </section>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div id="about">
+        <h2><b>ABOUT US</b></h2>
+        <hr>
+        <p>An innovative and eco-friendly bike-sharing solution at Caraga State University. Our mission is to provide a convenient, sustainable, and inclusive mode of transportation for students and faculty, aligning with global efforts to promote environmental sustainability and well-being.</p>
+      </div>
+
+      <div id="description">
+        <h5><b>CSU launches bike-sharing transportation for Sustainable Mobility Program</b></h5>
+        <p>The Caraga State University Pollution Control Office inaugurated its Sustainable Mobility Program on August 19 with ten bikes to minimize carbon emissions and improve campus mobility.
+          The Korean Safety and Environment Foundation helps the University implement the Program using iKilos Bayugan. CSU President Dr. Rolyn C. Daguil, Pollution Control Officer Vincent N. Cotoron, and iKilos Bayugan Executive Director Sheen Milger A. Ochavo signed the MOU the same day.
+          The PadyaKalikasan Project seeks to integrate electric vehicles, partner with public transportation, make the campus more pedestrian-friendly, and raise awareness and education in addition to bikes.</p>
+      </div>
+    <br><br><br>
+      <div id="image1" class="container-sm">
+        <div id="carouselExampleInterval" class="carousel slide ms-auto" style="position: relative; left: 50px; top: -266px; width: 50%; height: 300px;" data-bs-ride="carousel">
+          <div class="carousel-inner" style="height: 100%;">
+              <div class="carousel-item active" data-bs-interval="10000" style="height: 100%;">
+                  <img src="1.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Image 1">
+              </div>
+              <div class="carousel-item" data-bs-interval="2000" style="height: 100%;">
+                  <img src="2.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Image 2">
+              </div>
+              <div class="carousel-item" style="height: 100%;">
+                  <img src="3.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Image 3">
+              </div>
+          </div>
+
+          <!-- Icon placed at carousel level -->
+          <a href="https://www.facebook.com/CarSUOfficial/posts/pfbid053PdkHr5dkDL2KLzp7G9PepjczbGVMMbEkczjGavYrJ7QZCXri26fJ72LD8qgQoUl"
+          class="info-icon"
+          style="position: absolute; bottom: 10px; right: 10px; z-index: 10; text-decoration: none; background: none; border: none; padding: 0; display: inline-block; opacity: 0.7; transition: opacity 0.3s, color 0.3s;">
+         <i class="bi bi-info-circle-fill"></i>
+         <span class="tooltip">Source</span>
+          </a>
+  
+          <!-- Carousel Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+          </button>
+      </div>
+      
+</div>
+
+          <!--colab-->
+
+
+          <div id="colab">
+            <h4><strong>COLLABORATION</strong></h4>
+
+
+            <div id="colab" style="margin: 5%; margin-bottom: 10%; color: #095527;">
+              <div 
+                id="benefits" 
+                style="display: flex; justify-content: center; align-items: center; gap: 20px;"
+              >
+
+              <div style="display: flex; align-items: center;">
+                <img 
+                  src="/frontend/benefits/csu.png" 
+                  alt="CSU Logo" 
+                  style="width: 250px; height: 50px; object-fit: cover;"
+                >
+              </div>
+
+                <div style="display: flex; align-items: center;">
+                  <img 
+                    src="/frontend/benefits/ikilos.jpg" 
+                    alt="Image 1" 
+                    style="width: 300px; height: 200px; object-fit: cover;"
+                  >
+                </div>
+            
+                <div style="display: flex; align-items: center;">
+                  <img 
+                    src="/frontend/benefits/shekorea.png" 
+                    alt="She Korea Logo" 
+                    style="width: 250px; height: 50px; object-fit: cover;"
+                  >
+                </div>
+              </div>
+            </div>
+          </div> 
+
+            <!--BENEFIT-->
+          <h4><strong>BENEFITS</strong></h4>
+          <hr>
+
+          <div id="benefits" style="align-items: center; text-align: left;margin-left: 5%; margin-right: 5%; margin-top: 5%; margin-bottom: 10%; color: #095527;">
+
+
+          <div class="container-md" style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); gap: 10px; margin: 20px; ">  
+            <!-- Image 1 -->
+            <div style="display: flex; align-items: center;">
+                <img src="/frontend/benefits/environmental-awareness.png" alt="Image 1" style="width: 100px; height: 100px; object-fit: cover; margin-right: 15px;">
+                <ul>
+                <p><b>Environmental Impact</b></p>
+                <p> Reduces carbon emissions, supporting a cleaner, sustainable campus.</p>
+              </ul>
+            </div>
+            
+            <!-- Image 2 -->
+            <div style="display: flex; align-items: center;">
+                <img src="/frontend/benefits/traffic.png" alt="Image 2" style="width: 100px; height: 100px; object-fit: cover; margin-right: 15px;">
+                <ul>
+                <p><b>Reduced Traffic Congestion</b></p>  
+                <p>Eases campus congestion, making it easier to get around.</p>
+              </ul>
+            </div>
+            
+            <!-- Image 3 -->
+            <div style="display: flex; align-items: center;">
+                <img src="/frontend/benefits/weightlifting.png" alt="Image 3" style="width: 100px; height: 100px; object-fit: cover; margin-right: 15px;">
+              <ul>
+                <p><b>Health & Wellness</b></p>
+                <p>Promotes physical activity and improves fitness.</p>
+              </ul>
+            </div>
+            
+            <!-- Image 4 -->
+            <div style="display: flex; align-items: center;">
+                <img src="/frontend/benefits/coin.png" alt="Image 4" style="width: 100px; height: 100px; object-fit: cover; margin-right: 15px;">
+              <ul>
+                <p><b>Cost Savings</b></p>
+                <p>Offers an affordable alternative to cars and public transport.</p>
+              </ul>
+            </div>
+            
+            <!-- Image 5 -->
+            <div style="display: flex; align-items: center;">
+                <img src="/frontend/benefits/moving.png" alt="Image 5" style="width: 100px; height: 100px; object-fit: cover; margin-right: 15px;">
+                <ul>
+                <p><b>Increased Campus Accessibility</b></p>
+                <p>Provides faster, easier campus mobility.</p>
+              </ul>
+            </div>
+            
+            <!-- Image 6 -->
+            <div style="display: flex; align-items: center;">
+                <img src="/frontend/benefits/university-campus.png" alt="Image 6" style="width: 100px; height: 100px; object-fit: cover; margin-right: 15px;">
+                <ul>
+                <p><b>Sustainable Campus Culture</b></p>
+                <p>Encourages eco-friendly habits and a greener campus.</p>
+              </ul>
+            </div>
+          </div>
+
+
+
+          </div>
+
+            <!--RATEUS-->
+          <h3><strong>How do you feel about UniBike?</strong></h3>
+
+          <div id="rateus">
+          <div class="rate-us">
+            <i class="bi bi-emoji-heart-eyes-fill smiley" style="color: #4CAF50;"></i>
+            <i class="bi bi-emoji-smile-fill smiley" style="color: #8BC34A;"></i>
+            <i class="bi bi-emoji-neutral-fill smiley" style="color: #FFC107;"></i>
+            <i class="bi bi-emoji-frown-fill smiley" style="color: #FF9800;"></i>
+            <i class="bi bi-emoji-dizzy-fill smiley" style="color: #F44336;"></i>
+          </div>
+          </div>
+
+          </section>
+
+
+      <!-- Chatbot Icon -->
+<div class="chatbot-icon" onclick="toggleChatbot()">
+  <i class="fas fa-comments"></i>
+</div>
+
+<!-- Chatbot Container -->
+<div class="chatbot-container" id="chatbotContainer">
+  <!-- Chatbot Header -->
+  <div class="chatbot-header">
+      Frequently Asked Questions
+      <span class="close-btn" onclick="toggleChatbot()">&times;</span>
+  </div>
+
+  <!-- Chat Area -->
+  <div class="chat-area" id="chatArea">
+      <!-- Predefined Questions -->
+      <div class="faq-question" onclick="toggleAnswer(this)">
+          What is UniBike?
+          <div class="faq-answer">UniBike is a bike-sharing service for university students.</div>
+      </div>
+      <div class="faq-question" onclick="toggleAnswer(this)">
+          How to book a bike?
+          <div class="faq-answer">You can book a bike by clicking the "Book Now" button on the main page.</div>
+      </div>
+      <div class="faq-question" onclick="toggleAnswer(this)">
+          Locations of the bike dock/s
+          <div class="faq-answer">Bike docks are located across the university campus near major landmarks.</div>
+      </div>
+      <div class="faq-question" onclick="toggleAnswer(this)">
+          Bike tracking
+          <div class="faq-answer">Bikes can be tracked using the UniBike app with real-time GPS.</div>
+      </div>
+  </div>
+
+  <!-- User Input Section -->
+  <div class="chatbot-input">
+      <input type="text" id="userInput" placeholder="Ask a question...">
+      <button onclick="handleUserQuestion()">Send</button>
+  </div>
+</div>
+
+    <main id="main">
+        <!-- Any additional content goes here -->
+    </main>
+
+    <footer class="footer bg-dark text-white py-4 mt-auto">
+      <div class="container text-center">
+          <p>&copy; 2024 UniBike - Caraga State University. All Rights Reserved.</p>
+          <p><a href="#about" class="text-white">About Us</a> | <a href="#contact" class="text-white">Contact</a></p>
+      </div>
+  </footer>
+  
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
